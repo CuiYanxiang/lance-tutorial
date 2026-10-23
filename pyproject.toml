@@ -1,0 +1,24 @@
+[project]
+name = "lance-tutorial"
+version = "0.1.0"
+description = "Lance 湖仓格式教程：入门、精通、实战、运维与 Ray/Spark 集成示例"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pylance>=1.0",
+    "pyarrow>=17",
+    "pandas>=2.2",
+]
+
+[dependency-groups]
+# Ray 集成示例（examples/18_ray_lance.py）
+ray = [
+    "ray[data]>=2.59",
+    "lance-ray>=0.5",
+]
+
+[tool.uv]
+# 可选示例依赖，按需安装：
+#   torch:   uv add torch              # examples/08_pytorch_dataloader.py
+#   duckdb:  uv add duckdb             # examples/10_duckdb_spark.py
+#   pyspark: uv add "pyspark==3.5.*"   # examples/19_spark_lance.py（另需 Java 11+）
